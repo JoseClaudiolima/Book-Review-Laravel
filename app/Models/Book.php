@@ -43,7 +43,7 @@ class Book extends Model
             ->orderBy('reviews_avg_rating', 'desc');
     }
 
-    public function scopeMinReviews(Builder $query, int $minReviews): Builder|QueryBuilder
+    public function scopeMinReviews(Builder $query, int $minReviews)
     {
         return $query->having('reviews_count', '>=', $minReviews);
     }
