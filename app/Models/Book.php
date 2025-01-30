@@ -63,4 +63,29 @@ class Book extends Model
         ->where('created_at', '>=', $from)
         ->orderBy('reviews_count', 'desc');
     }
+    
+    public function scopePopularLastMonth(Builder $query){
+        return $query->highestRated(now()->subMonth(), now())
+        ->PopularBetween(now()->subMonth(), now())
+        ->minReviews(3);
+    }
+
+    public function scopePopularLast6Months(Builder $query){
+        return $query->highestRated(now()->subMonth(6), now())
+        ->PopularBetween(now()->subMonth(6), now())
+        ->minReviews(6);
+    }
+
+    public function scopeHighestRatedLastMonth(Builder $query){
+        return $query->PopularBetween(now()->subMonth(), now())
+        ->highestRated(now()->subMonth(), now())
+        ->minReviews(3);
+    }
+
+    public function scopeHighestRatedLast6Months(Builder $query){
+        return $query->PopularBetween(now()->subMonth(6), now())
+        ->highestRated(now()->subMonth(6), now())
+        ->minReviews(6);
+    }
+
 }
