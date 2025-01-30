@@ -20,14 +20,15 @@ class ReviewFactory extends Factory
     }
     
     public function good(){
-        return $this->state(['rating' => fake()->numberBetween(4,5)]);
+        return $this->state(fn () => ['rating' => fake()->numberBetween(3, 5)]);
     }
+    
 
     public function average(){
-        return $this->state(['rating' => fake()->numberBetween(3,4)]);
+        return $this->state(fn () => ['rating' => fake()->numberBetween(1, 5)]);
     }
 
     public function bad(){
-        return $this->state(['rating' => fake()->numberBetween(1,2)]);
+        return $this->state(fn () => ['rating' => fake()->numberBetween(1, 3)]);
     }
 }
