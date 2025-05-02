@@ -30,7 +30,7 @@
           <div>
             <div class="mb-2 flex items-center justify-between">
               <div class="font-semibold">
-                <x-star-rating :rating="$book->reviews_avg_rating"></x-star-rating>
+                <x-star-rating :rating="$review->rating"></x-star-rating>
               </div>
               <div class="book-review-count">
                 {{ $review->created_at->format('M j, Y') }}</div>
