@@ -12,7 +12,7 @@ class ReviewFactory extends Factory
     {
         return [
             'book_id' => null,
-            'review' => fake()->paragraph,
+            'review' => fake()->paragraph(),
             'rating' => fake()->numberBetween(1,5),
             'created_at' => $createdAt = fake()->dateTimeBetween('-2 years'),
             'updated_at' => fake()->dateTimeBetween($createdAt, 'now')
